@@ -45,3 +45,10 @@ def create_checkout_session():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 400
+    
+@app.route('/')
+def home():
+    return 'API está rodando com sucesso! 🚀'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
