@@ -36,7 +36,13 @@ def create_checkout_session():
             ],
             payment_intent_data={
                 'setup_future_usage': 'off_session'
-            },
+                'metadata': {
+                    'utm_source': data.get('utm_source', ''),
+                    'utm_medium': data.get('utm_medium', ''),
+                    'utm_campaign': data.get('utm_campaign', ''),
+                    'utm_term': data.get('utm_term', ''),
+                    'utm_content': data.get('utm_content', '')
+                    },
             success_url=success_url,
             cancel_url=cancel_url,
         )
